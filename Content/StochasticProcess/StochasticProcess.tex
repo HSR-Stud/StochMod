@@ -1,0 +1,118 @@
+
+\section{Stochastic Processes \skript{63-102}}
+
+\begin{tabular}{|l|l|l|}
+	\hline
+					&	$\mathbb{T}$ \textit{discrete}	& $\mathbb{T}$ \textit{continuous} \\
+	\hline
+	$S$ \textit{discrete} 	&	 random walk			& Poisson process \\
+	\hline
+	$S$ \textit{continuous}	&	time series				& Brownian motion \\	
+	\hline
+\end{tabular}
+$S$: state space, $\mathbb{T}$: time \\
+
+\begin{tabular}{ p{4.5cm} p{8cm} l}
+% 	\textbf{Mean}: 						&	$E(X_t)$		& \\
+%	\textbf{Autocorrelation}:			&	$R_X(t_1,t_2)=E\left[(X_{t_1} X_{t_2}\right]$	& \\
+%	\textbf{Autocovariance}: 			&	$C_X(t_1,t_2)=R_X(t_1,t_2)-E\left[X_{t_1} \right]E\left[X_{t_2}\right]$	& \\
+%	\textbf{Correlation coefficient}: 	&	$\rho_X(t_1,t_2)=\frac{C_X(t_1,t_2)}{\sqrt{C_X(t_1,t_1) C_X(t_2,t_2)}}$	& 	WSS: $\rho_X(t_1, t_2)=\frac{C_X(t_2-t_1)}{C_X(0)}$\\
+%										&	$|\rho| \leq 1$, 1 = perfect correlation \\
+	\textbf{Average power}: 			&	$R_X(t,t)=E\left[X_t^2\right]$	& \\
+	\textbf{strict sense stationary}: 	&	A stochastic process $X$ is strict sense stationary, if the finite dimensional distribution function is invariant under time shift	 \\
+	\textbf{wide sense stationary (WSS)}:& 	A stochastic process $X$ ist wide sense stationary, if the mean $E(X_t)=m$ is a constant and if the autocorellation function $R_X(t_1,t_2)$ only depends on the difference $t=t_2-t_1$. Dann gilt $R_X(t)=R_X(t_1,t_1+t)$. 	& \\
+	\textbf{white noise}: 				&	A wide sense stationary process $X_t$ is called white noise if $E(X_t)=0$ and $R_X(t)=C_X(t)=\frac{D}{2}\delta(t)$	& \\
+\end{tabular}
+
+\subsection{(power) spectral density}	
+$R_X(t)\FT S_X(k)$ \\
+\begin{tabular}{ll}
+	continuous:		&	$S_X(k)=\int\limits_{-\infty}^{\infty}{\e^{-j k t}R_x(t)dt}$	\\
+	discrete: 		&	$S_X(k)=\sum\limits_{n=-\infty}^{\infty}{\e^{-j 2\pi k n}R_x(n)}$	 \\
+	because real:	&	$S_X(k)=\int\limits_{-\infty}^{\infty}{cos(kt)R_x(t)dt}$; \qquad $R_X(k)=\frac{1}{2\pi}\int\limits_{-\infty}^{\infty}{cos(kt)S_x(t)dk}$	\\
+	\hline
+	example			&	$R_X(t)=cos(2\pi f t)/2 \FT S_X(k)=2\pi [\delta(k-2\pi f)+ \delta(k+2\pi f)]/4$ \\
+\end{tabular}	
+
+\subsection{WSS throught linear system \skript{81}}
+
+$\boxed{Y(k)=H(k)\cdot X(k)} \qquad \boxed{S_Y(k)=|H(k)|^2 S_X(k)}$
+
+%\newpage
+
+\subsection{The Kalman filter \skript{86}}
+The Kalman Filter is a Best Linear Unbiased Estimator (BLUE).
+
+\textbf{Grundgedanke} Beim Kalman Filter wird der Kalman Gain nach dem
+kleinsten Fehlerquadrat geschätzt. Speziell am Kalman ist, dass Messgrössen
+mithilfe der Zustandsgrössen und einem Rauschsignal definiert ist. \\
+Idea: Best estimation when process and observer equation as well as some initial conditions are given.
+$\mathbf{\hat x}(n|n)$ is the prediction, $\mathbf{P}$ is the error covariance matrix, $\mathbf{K}$ is the Kalman gain.
+The index $\mathbf{\hat x}(a|b)$ $a$ stands for the iteration number ($n$ = now) and $b$ is which input
+data has to be taken ($n-1$ = data up to the last iteration).
+
+\subsection{Requirements}
+\textbf{Grundgedanke} Beim Kalman Filter wird der Kalman Gain nach dem
+kleinsten Fehlerquadrat geschätzt. Speziell am Kalman ist, dass Messgrössen
+mithilfe der Zustandsgrössen und als Unsicherheit weissem Rauschen definiert ist. \\
+\textbf{Voraussetzungen}
+\begin{aufzaehlung}
+   	\item Physikalisches Modell/Systementwicklung (für normales sogar ein
+   	lineares Modell)
+   	\item Messwerte, auch eine Sensorfusion möglich (mehrere Messwerte für ein
+   	Systemzustand)
+   	\item für normales Kalman: linearer Zusammenhang zwischen Messwerten und
+   	Zustandsgrössen
+\end{aufzaehlung}
+
+\textbf{Some useful hints:}
+\begin{itemize}
+	\item $\bm{\hat{x}}_{n-1}$ and $\bm{P}_{n-1}$ needs initial conditions
+	\item $\bm{P}$ and $\bm{K}$ can be calculated off-ahead, if the system does not change.
+\end{itemize}
+
+\subsection{Kalman equations}
+\begin{alignat}{2}
+	&\text{State equation:}\qquad&&\mathbf{x}(n) =\mathbf{A}(n-1)\mathbf{x}(n-1) + \mathbf{w}(n)\nonumber\\
+	&\text{Observer equation:}\qquad&&\mathbf{y}(n) =\mathbf{C}(n)\mathbf{x}(n) + \mathbf{v}(n)\nonumber\\
+	\nonumber\\
+	&\text{Initial condition:}	\qquad	&&\mathbf{x}(0|0)=E\{\mathbf{x}(0)\}\nonumber\\
+										&&&\mathbf{P}(0|0)=E\{\mathbf{x}(0)\mathbf{x}^{\mathrm T}(0)\}\nonumber\\
+	\nonumber\\
+	\label{kal1}
+	&\text{Prediction:}			\qquad	&&\mathbf{\hat{x}}(n|n-1)=\mathbf{A}(n-1)\mathbf{\hat{x}}(n-1|n-1)\\
+										&&&\mathbf{P}(n|n-1)=\mathbf{A}(n-1)\mathbf{P}(n-1|n-1)\mathbf{A}^{\mathrm T}(n-1) + \mathbf{Q}_w(n)\\
+	\nonumber\\
+	&\text{Update:}				\qquad	&&\mathbf{K}(n)=\mathbf{P}(n|n-1)\mathbf{C}^{\mathrm T}(n)\left[\mathbf{C}(n) \mathbf{P}(n|n-1)\mathbf{C}^{\mathrm T}(n)+\mathbf{Q}_v(n)\right]^{-1}\\
+										&&&\mathbf{\hat{x}}(n|n)=\mathbf{\hat{x}}(n|n-1)+\mathbf{K}(n)\left[\mathbf{y}(n)-\mathbf{C}(n)\mathbf{\hat{x}}(n|n-1)\right]\\
+										&&&\mathbf{P}(n|n)=\left[\mathbf{I}-\mathbf{K}(n)\mathbf{C}(n)\right]\mathbf{P}(n|n-1)\\
+										&&&\textbf{continue with \eqref{kal1}}	
+\end{alignat}
+%$\mathbf{Q}_w(n)=E(w_k w_k^T) \quad	\mathbf{I}=\text{Einheitsmatrix} \quad \mathbf{C}=\text{}$
+The steady-state is reached when $\mathbf{P}(n|n) = \mathbf{P}(n-1 | n-1)$ and $\mathbf{K}(n) = \mathbf{P}(n|n)$.
+
+\subsection{Functional description}
+		\begin{liste}
+	    	\item A Systementwicklungsmatrize: Physikalische Modell
+	    	\item K Kalman Gain: Gewichtet interne Schätzung und die Messungen der
+	    	einzelnen Sensoren (0=Nur interne Schätzung;1=nur Messung)
+	    	\item H Messmatrize: Zusammenhang zwischen Mess- und Zustandsgrössen
+	    	\item P (Fehlerkovarianzma.) Schätzgrösse für den Fehler. Je grösser desto
+	    	mehr wird aktuelle Messung berücksichtigt. Beim normalen Kalman Filter
+	    	konvergiert dieser mit der Zeit.
+	    	\item z: Messwerte (auch von mehreren gleichartigen Sensoren möglich)
+	    	\item x: Zustandsgrössen
+	    	\item Initialwert: Systemwerte beliebig; Fehlerkovarianzmatrize sehr
+	    	gross wählen, so dass zuerst nur die Messung berücksichtigt wird
+	    	\item Q Standartabweichung System (Systemrauschen)
+	    	\item R Standartabweichung der Sensoren (Messrauschen)
+				\item Das Verhältniss von Q zu R ist für die Filtereinstellung verantwortlich.\newline
+				$\frac QR$ gross $\rightarrow$ vertraut mehr den Messdaten\newline \hspace{4cm} $\frac QR$ klein $\rightarrow$ vertraut mehr den Systemeigenschaften
+	    \end{liste}
+
+\subsection{The matched filter \skript{86}}
+
+The optimal filter is matched to the known signal and known power spectral density if we take:
+
+$$\boxed{H(k)=\alpha\frac{V(k)\e^{-j2\pi k t}}{S_X(k)}}$$
+

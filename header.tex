@@ -1,0 +1,239 @@
+
+% Genereller Header
+\documentclass[10pt,twoside,a4paper,fleqn]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage[left=1cm,right=1cm,top=1cm,bottom=1cm,includeheadfoot]{geometry}
+\usepackage[ngerman]{babel,varioref}
+\usepackage[T1]{fontenc}
+
+
+% Pakete
+\usepackage{amssymb} 
+\usepackage{amsmath}
+\usepackage{fancybox}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{lastpage}
+\usepackage{wrapfig}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{verbatim}
+\usepackage{floatflt}
+\usepackage{arydshln}
+\usepackage{ucs}
+\usepackage{pdflscape} % landscape
+\usepackage{multirow} % zellen in tabellen verbinden
+\usepackage{multicol} 
+%\usepackage{pgf,tikz} %Zeichnen
+
+% \usepackage{slashbox} % getrennte zelle in tabelle
+% \usepackage{array} % anordnung in tabellen
+
+%%%%%%%%%%%%%%%%%%%%
+% Generelle Makros %
+%%%%%%%%%%%%%%%%%%%%
+
+
+\newcommand{\skript}[1]{$_{\textcolor{red}{\mbox{\small{Script p. #1}}}}$}
+\newcommand{\sachs}[1]{$_{\textcolor{blue}{\mbox{\small{Sachs S. #1}}}}$}
+\newcommand{\formelbuch}[1]{$_{\textcolor{red}{\mbox{\small{S#1}}}}$}
+\newcommand{\verweis}[2]{ {\small (siehe auch \ref{#1}, #2 (S. \pageref{#1}))}}
+\newcommand{\subsubadd}[1]{\textcolor{black}{\mbox{#1}}}
+\newenvironment{liste}[0]{\begin{list}{$\bullet$}{\setlength{\itemsep}{0cm}\setlength{\parsep}{0cm} \setlength{\topsep}{0cm}}}{\end{list}}
+    
+\newcommand{\logd}[0]{\log_{10}}
+\newcommand{\subsubsubsection}[1]{\textbf{#1}}
+
+\newenvironment{aufzaehlung}[0]{\begin{enumerate}{\setlength{\itemsep}{0cm}\setlength{\parsep}{0cm}\setlength{\topsep}{0cm}}} {\end{enumerate}}
+
+\newcommand{\abbHeight}[3]{
+	\begin{center}
+		\includegraphics[height=#2]{./bilder/#1} \\
+		#3
+    \end{center}
+}
+
+
+\newcommand{\skriptsection}[2]{\section{#1 \formelbuch{#2}}}
+\newcommand{\skriptsubsection}[2]{\subsection{#1 \formelbuch{#2}}}
+\newcommand{\skriptsubsubsection}[2]{\subsubsection{#1 \formelbuch{#2}}}
+
+%%%%%%%%%%
+% Farben %
+%%%%%%%%%%
+\definecolor{black}{rgb}{0,0,0}
+\definecolor{red}{rgb}{1,0,0}
+\definecolor{white}{rgb}{1,1,1}
+\definecolor{grey}{rgb}{0.8,0.8,0.8}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Mathematische Operatoren %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\DeclareMathOperator{\sinc}{sinc}
+\DeclareMathOperator{\sgn}{sgn}
+
+
+
+% Fouriertransformationen
+\unitlength1cm
+\newcommand{\FT}
+{
+\begin{picture}(1,0.5)
+\put(0.2,0.1){\circle{0.14}}\put(0.27,0.1){\line(1,0){0.5}}\put(0.77,0.1){\circle*{0.14}}
+\end{picture}
+}
+
+
+\newcommand{\IFT}
+{
+\begin{picture}(1,0.5)
+\put(0.2,0.1){\circle*{0.14}}\put(0.27,0.1){\line(1,0){0.45}}\put(0.77,0.1){\circle{0.14}}
+\end{picture}
+}
+\newcommand{\jw}{j\omega}
+
+\newcommand{\DFT}
+{
+%\overset{DFT}{
+	\begin{picture}(1,0.2)
+	\put(0.2,0.1){\circle{0.14}}{\put(0.27,0.1){\line(1,0){0.5}}}\put(0.77,0.1){\circle*{0.14}}
+	\end{picture}
+%}
+}
+
+\newcommand{\IDFT}
+{
+%\overset{IDFT}{
+    \begin{picture}(1,0.2)
+	\put(0.2,0.1){\circle*{0.14}}\put(0.27,0.1){\line(1,0){0.45}}\put(0.77,0.1){\circle{0.14}}
+	\end{picture}
+%}
+}
+
+
+\newcommand{\twopartdef}[4]
+{
+	\left\{
+		\begin{array}{ll}
+			#1 & \mbox{if } #2 \\
+			#3 & \mbox{if } #4
+		\end{array}
+	\right.
+}
+
+\newcommand{\mtwopartdef}[3]
+{
+	\left\{
+		\begin{array}{ll}
+			#1 & \mbox{if } #2 \\
+			#3 & \mbox{otherwise }
+		\end{array}
+	\right.
+}
+
+\newcommand{\threepartdef}[6]
+{
+	\left\{
+		\begin{array}{lll}
+			#1 & \mbox{if } #2 \\
+			#3 & \mbox{if } #4 \\
+			#5 & \mbox{if } #6
+		\end{array}
+	\right.
+}
+
+\newcommand{\bm}{\boldsymbol}
+\newcommand{\todo}[2][red]{\textcolor{#1}{TODO: #2}}
+\newcommand{\numbercircled}[1]{\textcircled{\raisebox{-1pt}{#1}}}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Allgemeine Einstellungen %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%pdf info
+\hypersetup{pdfauthor={\authorinfo},pdftitle={\titleinfo},colorlinks=false}
+\author{\authorinfo}
+\title{\titleinfo}
+
+%Kopf- und Fusszeile
+\pagestyle{fancy}
+\fancyhf{}
+%Linien oben und unten
+\renewcommand{\headrulewidth}{0.5pt} 
+\renewcommand{\footrulewidth}{0.5pt}
+
+
+\fancyhead[L]{\titleinfo{ }- Summary}
+%Kopfzeile rechts bzw. aussen
+\fancyhead[R]{\today{ }- Page \thepage/\pageref{LastPage}}
+\fancyfoot[C]{\copyright{ }\authorinfo}
+
+% Einrücken verhindern versuchen
+\setlength{\parindent}{0pt}
+
+
+% Einheiten
+%#########################################################################################
+\usepackage[Gray,squaren]{SIunits} %\gray befehl heisst nun \Gray
+
+%Spannung
+\DeclareMathOperator{\V}{\volt}
+\DeclareMathOperator{\mV}{\milli \volt}
+\DeclareMathOperator{\uV}{\micro \volt}
+
+%Strom
+\DeclareMathOperator{\A}{\ampere}
+\DeclareMathOperator{\mA}{\milli \ampere}
+\DeclareMathOperator{\uA}{\micro \ampere}
+\DeclareMathOperator{\nA}{\micro \ampere}
+
+%Zeit
+\DeclareMathOperator{\s}{\second}
+\DeclareMathOperator{\ms}{\milli \second}
+\DeclareMathOperator{\us}{\micro \second}
+\DeclareMathOperator{\ns}{\nano \second}
+
+%Kapazität
+\DeclareMathOperator{\mF}{\milli \farad}
+\DeclareMathOperator{\uF}{\micro \farad}
+\DeclareMathOperator{\nF}{\nano \farad}
+\DeclareMathOperator{\pF}{\pico \farad}
+\DeclareMathOperator{\fF}{\femto \farad}
+
+%Induktivität
+\DeclareMathOperator{\mH}{\milli \henry}
+\DeclareMathOperator{\uH}{\milli \henry}
+\DeclareMathOperator{\nH}{\nano \henry}
+
+%Widerstand
+\DeclareMathOperator{\MO}{\mega \ohm}
+\DeclareMathOperator{\kO}{\kilo \ohm}
+\DeclareMathOperator{\mO}{\milli \ohm}
+
+%Strecke
+\DeclareMathOperator{\km}{\kilo \meter}
+\DeclareMathOperator{\cm}{\centi \meter}
+\DeclareMathOperator{\mm}{\milli \meter}
+
+%Frequenz
+\DeclareMathOperator{\GHz}{\giga \hertz}
+\DeclareMathOperator{\MHz}{\mega \hertz}
+\DeclareMathOperator{\Hz}{\hertz}
+\DeclareMathOperator{\kHz}{\kilo \hertz}
+\DeclareMathOperator{\mHz}{\milli \hertz}
+
+%Leistung
+\DeclareMathOperator{\kW}{\kilo \watt}
+\DeclareMathOperator{\mW}{\milli \watt}
+\DeclareMathOperator{\uW}{\micro \watt}
+
+%Kreisfrequenz
+\DeclareMathOperator{\rpers}{\radianpersecond}
+
+%DeziBel
+\DeclareMathOperator{\dB}{\deci \bel}
+
+\DeclareMathOperator{\e}{\mathrm e}
+
+

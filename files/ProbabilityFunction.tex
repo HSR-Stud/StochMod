@@ -1,0 +1,290 @@
+
+\section{Wahrscheinlichkeitsverteilung}
+
+\subsection{Verteilungsfunktion \skript{69} }
+		\renewcommand{\arraystretch}{1.5}
+		\begin{tabular}[]{|l|l|}
+        	\hline
+        	\textbf{diskret} & \textbf{kontinuierlich}\\
+        	\hline
+        	\hline
+        	$P(X\leq x)=F(x)=\sum\limits_{k=-\infty}^x p_k$ &
+        	$P(X\leq x)=F(x)=\int\limits_{-\infty}^x
+        	\varphi(\tilde{x})d\tilde{x}$\\
+  			$P(X>x)=1-P(X\leq x)$ & $P(X>x)=1-P(X\leq x)$\\        	
+        	$P(a \le X \leq b)=F(b)-F(a)=\sum\limits_{k=a}^b p_k$ &
+  			$P(a \le X \leq b)=F(b)-F(a)=\int \limits_a^b
+  			\varphi(\tilde{x})d\tilde{x}$\\
+        	\hline
+        \end{tabular}
+		\renewcommand{\arraystretch}{1}
+
+		\subsubsection{Eigenschaften}
+  				$$\boxed{\mathbb{D}(F) = \mathbb{R}} \qquad \boxed{\mathbb{W}(F)
+  				\in[0,1]} \qquad \boxed{F(-\infty)=0} \qquad  \boxed{F(\infty)=1}
+  				\qquad \boxed{F(x) \text{ ist monoton steigend}}$$
+
+
+
+\subsection{Wahrscheinlichkeitsdichte }
+	\begin{tabular}{p{3.3cm}p{8.5cm}}
+	$\varphi(x)=F'(x)$ &Dichtefunktion oder Wahrscheinlichkeitsdichte\\
+	\multirow{2}{11cm}{Bei Sprungstellen von F(x): }\\
+	\multirow{2}{11cm}{$\varphi(x) = $ Dirac mit Gewichtung der Sprunghöhe}
+	
+	\end{tabular}
+
+\vspace{2mm}
+
+\subsection{Rechenregeln für $\varphi$ und $F$ \skript{82}}
+	\begin{minipage}{11cm}
+		\begin{tabular}{ll}
+    	Gegeben: &X, Y Zufallsvariablen\\
+    	&$\varphi_X$, $\varphi_Y$ bekannt\\
+    	\end{tabular}
+ 
+        	\begin{tabular}{p{6cm}p{6cm}}
+    	Verteilungsfunktion: &Dichte:\\
+    	$F_{X+a}(x)=F_X(x-a)$  &$\varphi_{X+a}(x)=\varphi_X(x-a)$\\
+    	$F_{\lambda X}(x)=F_X(\frac{x}{\lambda})$ &$\varphi_{\lambda
+    	X}(x)=\varphi_X(\frac{x}{\lambda})\frac{1}{\lambda}$\\
+    	$F_{X+Y}(x)=F_X\ast\varphi_Y(y)=F_Y\ast\varphi_X(x)$ &
+    	$\varphi_{X+Y}(x)=\varphi_X\ast\varphi_Y(x)$\\
+    	$F_{\sqrt{X}}(x)=F_X(x^2)$ &
+    	$\varphi_{\sqrt{X}}(x)=2x\varphi_X(x^2)$\\
+    	$F_{X^2}(x)=F_X(\sqrt{x})$ &
+    	$\varphi_{X^2}(x)=\frac{1}{2}x^{-\frac{1}{2}}\varphi_X(\sqrt{x})$
+    	\end{tabular}
+	\end{minipage}
+	\begin{minipage}{7cm}
+    	\subsubsection{Algorithmus Bsp.}
+    	\begin{tabular}{ll}
+    	1. Definition von $F$ anwenden: $F_{\lambda X}(x)=P(\underbrace
+    	{\lambda X\leq x}_{*})$\\ 
+    	2. Bedingung * umformen: $P(X \leq
+    	\frac{x}{\lambda})=F_X(\frac{x}{\lambda})$\\ 
+    	3. für Dichte: $\frac{d}{dx}$\\
+    	\vspace{3mm}
+    	$\varphi_{\lambda X}(x)=\frac{d}{dx}F_{\lambda
+    	X}(x)=\frac{d}{dx}F_X(\frac{x}{\lambda})=
+    	\varphi_X(\frac{x}{\lambda})\frac{1}{\lambda}$
+    	\end{tabular}
+		\vspace{10mm}
+    \end{minipage}
+    
+	\subsubsection{Maximalwert eines Intervalls \skript{125}}
+	$X_1,\ldots X_i$ sind auf dem Intervall $[0,l]$ mit $F_X(x)$ verteilt\\
+	M=$\max \{ X_1,\ldots,X_i\} $\\
+	$F_M(x)=F_X(x)^n$\\
+
+\subsection{Erwartungswert \skript{27} }
+	Sei $X$ eine Funktion auf $\Omega$, und lasse sich $\Omega$ in endlich viele
+	Ereignisse, auf denen $X(\omega)$ konstant ist, $A_i$ zerlegen, dann ist der
+	Erwartungswert von $X$\\
+		$Erwartungswert = \sum Wert \cdot Wahrscheinlichkeit$\\
+		$E(X)=\sum\limits_{i=0}^n \underbrace{X(A_i)}_{\text{Wert}}\cdot \underbrace{P(A_i)}_{\text{W'keit}}$\\
+	\begin{minipage}{10cm}
+			diskret:\\
+		$\textcolor{red}{E(}\textcolor{green}{X}\textcolor{red}{)}=\textcolor{red}{\sum\limits_{i=1}^\infty} \textcolor{green}{x_i} \cdot \textcolor{red}{ P(X=x_i)}$\\
+		$\textcolor{red}{E(}\textcolor{green}{g(X)}\textcolor{red}{)}=\textcolor{red}{\sum\limits_{i=1}^\infty} \textcolor{green}{g(x_i)} \cdot \textcolor{red}{ P(X=x_i)}$\\
+	\end{minipage}
+	\begin{minipage}{10cm}
+	
+		continuierlich:\\
+        $\textcolor{red}{E(}\textcolor{green}{X}\textcolor{red}{)}=	\textcolor{red}{\int} \textcolor{green}{x} \cdot \textcolor{red}{\varphi(x)dx}$\\
+        $\textcolor{red}{E(}\textcolor{green}{g(X)}\textcolor{red}{)}=	\textcolor{red}{\int} \textcolor{green}{g(x)} \cdot \textcolor{red}{\varphi(x)dx}$\\
+	
+	\end{minipage}
+	\subsubsection{Rechenregeln}
+		\begin{tabular}{ll}
+		$E(X+Y)=E(X)+E(Y)$\\
+		$E(\lambda X + \mu)=\lambda \cdot E(X) + \mu$ & $\lambda, \mu \in \mathbb{R}$\\
+		$E(XY) = E(X)\cdot E(Y)$ & wenn X,Y unabhängig sind\\
+		\end{tabular}\\
+\subsection{Varianz \skript{27} }
+	\begin{tabular}{ll}
+	$var(x)=\sigma ^2=E[(X-E(X))^2]=E(X^2)-E(X)^2$\\
+	disktret:&continiuierlich:\\
+	$var(x)=\sigma ^2= \sum\limits_{i=1}^\infty(x_i-E(X))^2 P(X=x_i)$&$var(x)=\sigma ^2=\int \limits_{-\infty}^\infty(x- E(x))^2 f(x)dx$\\
+	\end{tabular}
+
+	\subsubsection{Kovarianz}
+	\begin{tabular}{ll}
+    $cov(X,Y)=E(XY)-E(X)E(Y)=\underbrace{0}_{\text{falls X,Y unabhängig}}$
+    \end{tabular}
+    
+	\subsubsection{Rechenregeln}
+		\begin{tabular}{ll}
+    	$var(\lambda X)=\lambda^2 var(X) \qquad $ $\lambda, \mu \in
+    	\mathbb{R}$\\ 
+    	$var(X_1+X_2+\ldots+X_n) \neq var(n X)$ \\
+    	$var(X+Y)= \begin{cases}
+                      var(X)+var(Y)
+                      &	\text{(X,Y unabh.)}\\                     
+                      var(X) + var(Y) + 2 \cdot cov(X,Y) 
+                      &	\text{(X,Y abhängig)}\\
+                 \end{cases} $ \\
+    	$var(X Y)= var(Y)var(X)+var(Y)E(X)^2+var(X)E(Y)^2$
+    	\end{tabular}
+	\vspace{1mm}
+
+\subsection{Moment}
+	\begin{tabular}{ll}
+	disktret:&continiuierlich:\\
+	$\Phi(t)=E(e^{tX}))=\sum\limits_{i=1}^\infty e^{tx_i}P(X=x_i)$&$\Phi(t)=E(e^{tX}))=\int\limits_{-\infty}^\infty e^{tx_i}\varphi(x)dx$\\
+	\end{tabular}
+
+	
+\subsection{Erwartungswert und Varianz des arithmetischen Mittels \skript{}}
+	Es sei eine folge von unabhängigen Zufallsvariablen $X_1, X_2, \ldots , X_n$ mit gleichem
+	Erwartungswert $ \mu $ und gleicher Varianz $ \sigma^2 $ gegeben.  \\
+	\begin{tabular}{p{6cm} p{6cm} p{6cm}}
+        Mittelwert: $M_n=\frac{X_1+\ldots+X_n}{n}$ 
+        & Erwartungswert: $E(X)=E(M_n)$
+        & Varianz: $var(M_n)=\frac{1}{n}var(X)$
+    \end{tabular}
+\vspace{1mm}
+
+\newpage
+
+\subsection{Binomialverteilung \skript{109} }
+	\begin{tabular}{p{18cm}}
+	Wird angewendet bei einem Experiment mit nur zwei Ausgängen (Ereignis mit W'keit $p$ tritt
+	ein, Ereignis tritt nicht ein). \\
+	Eine Zufallsvariable mit diskreten Werten $k \in \{
+	0,\ldots,n \}$ heisst binomialverteilt zum Parameter $p$, wenn die
+    Wahrscheinlichkeit des Wertes $k$ wie folgt ist:
+    %\end{tabular}
+	%\begin{center}
+	$$X = Bi(n; p) = \binom n k p^k(1-p)^{n-k} \qquad \mu = E(X) = p \cdot n \qquad \sigma^2 =
+	var(X) = n \cdot p (1-p) \qquad\Phi(t)=(p\cdot e^t+1-p)^n$$ 
+	%\end{center}
+	%\begin{tabular}{ll} 
+	
+	$n$: Versuche \hspace{10mm}
+	$k$: k-mal erfolgreich \hspace{10mm}
+	$p$: Wahrscheinlichkeit\\\\
+	
+	{\bf Beispiel:} Wie hoch ist die Wahrscheinlichkeit, dass bei 350 Leuten genau
+	k $(k\leq 350)$ heute Geburtstag haben?\\
+	$P(k)=\binom {350} k \left(\frac{1}{365}\right)^k
+	\left(\frac{364}{365}\right)^{350-k}$
+    \end{tabular}
+    
+ \subsection{Geometrische Verteilung}
+ 	Wenn X die Nummer bis zum ersten Erfolg ist, so ist die Zufallsvariable geometrisch Verteilt:
+ 	$$X=Geom(p)=P({X=i})=(1-p)^{i-1} \cdot p$$
+ 	$$E(X)=\frac{1}{p}, \qquad V(X)=\frac{(1-p)}{p^2}, \qquad \Phi(t)=\frac{pe^t}{1-(1-p)e^t} $$
+	{\bf Beispiel:} Wie hoch ist die Wahrscheinlichkeit, dass nach 5 Münzenwürfen das erste Mal Kopf geworfen wird. Die Wahrscheinlichkeit für den Kopf ist p = 0.4\\
+	$P(X=5)=Geom(5) = (1-p)^{i-1} \cdot p = (0.6)^4  \cdot 0.4 = 5.18\%$
+ 	
+\subsection{Poissonverteilung \skript{113} }
+	\begin{tabular}{ll}
+    $P_\lambda(k)=\frac{\lambda^k}{k!}e^{-\lambda}$\\
+    Erwartungswert: & $E(X)=\lambda$\\
+    Varianz: & $var(X) =\lambda$\\
+    Moment: &$\Phi = e^{\lambda (e^t-1)}$
+    \end{tabular}
+    \vspace{2mm}\\
+    {\bf Anwendung der Poisson-Verteilung:} für die Häufigkeiten seltener Ereignisse. \\
+    Anzahl Anrufe bei einer Telefonzentrale in einer gewissen Periode.\\
+    Anzahl grosse Versicherungsschäden in einer gewissen Periode.\\
+    Anzahl Jobs, die bei einem Server ankommen. \\
+    Anzahl Ereignisse in einem Zeitintervall. \\
+    Anzahl Lokomotiven der SBB, die in der nächsten Woche einen Defekt haben.\\
+    Anzahl der Gewinner mit 4 Richtigen im Lotto.
+
+
+\subsection{Hypergeometrische Verteilung \skript{112} }
+	\begin{minipage}{13cm}
+    Ist die Wahrscheinlichkeit dass in einer $m$ Elemente umfassenden 
+	Stichprobe aus einer Grundgesamtheit von $n$ Elementen, von denen $r$ eine
+	spezielle Eigenschaft besitzen, $k$ Elemente mit der Eigenschaft zu
+	finden sind.\\
+	\vspace{5mm} 
+	$p(k)=P(X=k)=\dfrac{\binom r k \binom{n-r}{m-k}}{\binom n m}$ 
+    \hspace{10mm} für $0\leq k \leq r$ und $k \leq n$\\
+    Erwartungswert: \hspace{10mm} $E(X)=m \dfrac{r}{n}$\\
+    Varianz: \hspace{22mm} $var(X)=m \dfrac{r(n-r)(n-m)}{n^2(n-1)}$
+    \end{minipage}
+	\begin{minipage}{5cm}
+    \includegraphics[width=5cm]{../WrStat/bilder/hypergeo.png}
+    \end{minipage}
+	
+	\vspace{3mm}
+	{\bf Beispiel:} Lotto, $n=45$ Zahlen, $r=6$ (die gezogenen Zahlen), $m=6$
+	(meine Zahlen)\\
+	$P(X=4)=P(Ein Vierer)=\dfrac{\binom 6 4 \binom {39} 2}{\binom {45}
+	6}=0.001364$
+	
+
+
+\subsection{Gleichverteilung}
+	\begin{tabular}{p{9cm} p{9cm}}
+    %$M_n=\frac{X_1+\ldots+X_n}{n}$ \hspace{10mm} $M_n$: Mittelwert\\
+	\textbf{Stetig \skript{85}} 
+	& \textbf{Diskret \skript{108}} \\
+	Erwartungswert: $E(X)=\frac{a + b}{2}$
+	& Erwartungswert: $E(X)=\frac{n + 1}{2}$\\
+	Varianz: $var(X)=\frac{(b-a)^2}{12}$
+	& Varianz: $var(X)=\frac{n^2-1}{12}$
+    \end{tabular}
+
+\subsection{Normalverteilung \skript{93} }
+	\begin{minipage}{10cm}
+	Viele kleine, unabhängige Zufallsvariable sammeln sich zu einer
+	normalverteilten Zufallsvariable.\\
+	 $\varphi(x)=\frac{1}{\sqrt{2
+	\pi}\sigma}\cdot e^{-\frac{(x-\mu)^2}{2\sigma^2}} = N(\mu ; \sigma^2) $\\ 
+	$F(x)=\frac{1}{\sqrt{2
+	\pi}\sigma}\cdot \int\limits^{x}_{-\infty}{e^{-\frac{(\tilde{x} -\mu)^2}{2\sigma^2}}} $ \\
+	% = N(\mu ; \sigma^2),\tilde{x}} $
+	\textbf{Standardisierung}\\
+	Erwartungswert: $E(X)=\mu$ \hspace{4mm}(=0 bei Standardnormalver.)\\ 
+	Varianz \hspace{11.5mm}: $var(X)=\sigma^2$ (=1 bei Standardnormalver.)\\ \\
+	$x=\dfrac{X-\mu}{\sigma}$ \hspace{5mm} $x$ aus Tabelle
+	\end{minipage}
+	\begin{minipage}{8cm}
+	\includegraphics[width=8cm]{../WrStat/bilder/normalverteilung.png}
+	Dichtefunktion (oben) und Verteilungsfunktion (unten) der Normalverteilung. 
+	\end{minipage} \\ \\ 
+ $ 68\% $ der Werte liegen im Intervall $[ \mu - \sigma, \mu + \sigma]$, $95\% $ in $[ \mu - 2\sigma, \mu + 2\sigma]$, $99.7\% $ in $[ \mu - 3\sigma, \mu + 3\sigma]$
+
+\subsection{Zentraler Grenzwertsatz \skript{99} }
+  	$X_1, X_2, \ldots , X_n$ sind lauter identisch verteilte (nicht notwendig normalverteilt!)
+  	unabhängige Zufallsvariablen mit demselben Erwartungswert $\mu$ und derselben Varianz $\sigma^2$.  	\\ 
+  	Dann hat die Summe ($S_n = \sum_{i=1}^n X_i$) den Erwartungswert $n \mu$ und die Varianz $n \sigma^2$. \\
+  	Die damit verbundene standardisierte ($E(X) = 0, var(X) = 1$) Variable $Z_n$ ist somit wie
+  	folgt definiert: \\ $ Z_n = \dfrac{S_n - n \mu}{\sqrt{n} \sigma} = \dfrac{\overline{X} - \mu}{\sigma / \sqrt{n}}$\\
+  	Für $\boldsymbol{n \to \infty}$ strebt die Verteilung von $Z_n$ gegen die Standardnormalverteilung.
+
+\subsection{Exponentialverteilung \skript{88}}
+	\begin{minipage}{10cm}
+	Zur Ermittlung der Dauer von zufälligen Zeitintervallen ohne Gedächnis
+	(W'keit, dass X in der nächsten Minute defekt geht = const.). Beispiele :
+	\begin{itemize}
+      \item Lebensdauer von Atomen beim radioaktiven Zerfall
+      \item Lebensdauer von Bauteilen, Maschinen \& Geräten\\(MTBF -
+      Mean Time Before Failure = $\frac{1}{\lambda}$)
+    \end{itemize}
+    
+	\underline{Dichtefunktion und Verteilungsfunktion}\\
+    $\varphi(x)=\begin{cases}
+	\lambda e^{-\lambda x}  & x \geq 0\\
+	0						& x < 0
+	\end{cases}$
+	
+	$F(x)=\begin{cases}
+	1-e^{-\lambda x}  		& x \geq 0\\
+	0	 					& x < 0
+	\end{cases}$\\ \\
+
+	\underline{Erwartungswert und Varianz}\\
+	$E(X)=\frac{1}{\lambda}$\\
+	$var(X)=\frac{1}{\lambda^2}$ \\
+    \end{minipage}
+	\begin{minipage}{8cm}
+    \includegraphics[width=8cm]{../WrStat/bilder/exponentialverteilung.png}
+	Dichtefunktion (oben) und Verteilungsfunktion (unten) der Exponentialverteilung.
+    \end{minipage}
+

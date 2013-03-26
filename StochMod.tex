@@ -1,0 +1,40 @@
+%%%%%%%%%%%%%%%%%%%%%%%%% 
+% Dokumentinformationen % 
+%%%%%%%%%%%%%%%%%%%%%%%%% 
+\newcommand{\titleinfo}{Stochastic Modeling}
+\newcommand{\authorinfo}{S. Eicher, L. Schmid, R. Koller, Ch. Schlittler} % Do not remove any names! Initial authors stay first.
+\newcommand{\versioninfo}{HS2012}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Standard projektübergreifender Header für
+% - Makros 
+% - Farben
+% - Mathematische Operatoren  
+%
+% DORT NUR ERGÄNZEN, NICHTS LÖSCHEN
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+\include{header}   
+
+% Möglichst keine Ergänzungen hier, sondern in header.tex
+\begin{document} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{Content/EreignisseWahrscheinlichkeit/EreignisseWahrscheinlichkeit}
+\input{Content/RandomVariable/RandomVariable}
+\input{Content/LimitTheorems/LimitTheorems}
+\input{Content/StochasticProcess/StochasticProcess}
+\input{Content/Markov/MarkovChain}
+\input{Content/Markov/HMM}
+
+\newpage
+
+\input{Content/Markov/ContTimeMarkovChain}
+\input{Content/Reihenentwicklung/Reihenentwicklung}
+%\input{../StatDig/files/WTheorie.tex}
+\input{Content/Tabellen/tabellen}
+\input{files/ex_index.tex}
+\input{Content/Tabellen/SND}
+
+\end{document}
