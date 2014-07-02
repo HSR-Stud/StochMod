@@ -156,9 +156,11 @@ $$E(\tau|\tau>s)=s+E(\tau)=s+\frac 1\lambda$$
 
 The Poisson process will generalized in a way that allowed the counting process to decrease. Such a process is coined a birth death process. A possible interpretation is the number of clients in a post office where clients enter with exponential arrival times of intensity $\lambda$ and where clients leave the office at an exponential rate $\mu_n$. $n$ is the number of clients in the System.\\
 
-\textbf{Definition of transition rate}: $\nu_{ij}=0 \quad if\quad |j-1|>1$\\
+\textbf{Definition of transition rate}: $\nu_{ij}=0 \quad if\quad |j-i|>1$\\
 
-The parameter $\lambda_i:=\nu_{ii+1}$ for $i\geq 0$ and $\mu_i:=\nu{ii-1}$ for $i\geq 1$ are the \textbf{birth rates} and the \textbf{death rates} of the process.
+The parameter $\lambda_i:=\nu_{i,i+1}$ for $i\geq 0$ and $\mu_i:=\nu_{i,i-1}$ for $i\geq 1$ are the \textbf{birth rates} and the \textbf{death rates} of the process.\\
+
+Transition probabilities: $p_{01}=1$ and $p_{i,i+1}=1-p_{i,i-1}=\frac{\lambda_i}{\lambda_i+\mu_i}$
 
 \subsubsection{Limiting probabilities \skript{146}}
 $$\pi_j=\lim\limits_{n\rightarrow \infty}{p_{ij}(t)}$$

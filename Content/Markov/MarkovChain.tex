@@ -47,9 +47,17 @@ The (exactly) $m$ step transition probabilities of a homogeneous Markov chain $X
 
 
 \subsubsection{The stationary distribution \skript{109}}
+
+The probability distribution of a Chain with initial probability $\nu$ is:
+\begin{equation}
+	\boxed{p_{j}^{(n)}=\sum\limits_i{\nu_i p_{ij}^{(n)}}} \quad
+	\boxed{p^{(n)}=\nu P^{n}}
+\end{equation}
+
 The stationary distribution ($n\rightarrow \infty$) of a Chain is:
 \begin{equation}
-	\boxed{\pi_{j}=\underbrace{\sum\limits_k{\pi_k p_{kj}}}_{\text{probabilities to enter state }j},~~ \pi_j\geq 0 ~~ and ~~ \sum\limits_k{\pi_j}=1}\nonumber
+	\boxed{\pi_{j}=\underbrace{\sum\limits_k{\pi_k p_{kj}}}_{\text{probabilities to enter state }j},~~ \pi_j\geq 0 ~~ and ~~ \sum\limits_k{\pi_j}=1}\nonumber \quad
+	\boxed{\pi=\pi P}
 \end{equation}
 
 $\pi$ is a eigenvector of $P$ with eigenvalue $1$\\
