@@ -2,3 +2,4 @@ Sven Eicher
 Lukas Schmid
 Roman Koller
 Christian Schlittler
+Stefano Carriero
