@@ -1,5 +1,5 @@
 
-\section{Random variables \skript{25,26}}
+\section{Random variables \skript{25-27}}
 
 \begin{tabular}{p{5.5cm}p{8.5cm}p{4cm}}
 $X: \Omega \rightarrow \mathbb{R}$&	$X=\{x_1, \ldots, x_n, \ldots\}$&\\
@@ -17,7 +17,7 @@ Normalization:&$\sum\limits_{i=1}^\infty{P(X=x_i)}=1$& $\int\limits_{-\infty}^\i
 \hrule
 \vspace{3mm}
 
-\subsection{Cumulative Distribution Function (Verteilungsfunktion): F(x) \skript{26,27}}
+\subsection{Cumulative Distribution Function (Verteilungsfunktion): F(x) \skript{27}}
 
 	\begin{tabular}{p{3cm}p{6cm}}
 	
@@ -112,7 +112,7 @@ Normalization:&$\sum\limits_{i=1}^\infty{P(X=x_i)}=1$& $\int\limits_{-\infty}^\i
 \hrule
 \vspace{3mm}
 
-\subsection{Expectation: E(x) \skript{27}}
+\subsection{Expectation: E(x) \skript{28}}
 \begin{minipage}{12cm}
   \begin{tabular}{p{2cm}p{4cm}p{5cm} }
   			&  Expectation (1. moment)						&	$n$-th moment	\\
@@ -130,7 +130,7 @@ Normalization:&$\sum\limits_{i=1}^\infty{P(X=x_i)}=1$& $\int\limits_{-\infty}^\i
 \hrule
 \vspace{3mm}
 
-\subsection{Variance: V(X)=Var(X) \skript{27,28}}
+\subsection{Variance: V(X)=Var(X) \skript{28,29}}
   \begin{tabular}{p{2cm}p{8cm}l}
   	$Var(X)$	&	$=E(X^2)-E^2(X)=E\left([X-E(X)]^2\right)$						& \\
   	Discrete: 	&	$V(X)=Var(X)=\sum\limits_{i=1}^\infty{(x_i-E(X))^2 P(X=x_i)}$	& \\
@@ -155,7 +155,7 @@ Normalization:&$\sum\limits_{i=1}^\infty{P(X=x_i)}=1$& $\int\limits_{-\infty}^\i
 \hrule
 \vspace{3mm}
 
-\subsection{Moment Generating Function $\phi(t)$ \skript{28}}
+\subsection{Moment Generating Function $\phi(t)$ \skript{29}}
 Used to calculate first or second order moments (mean, variance). If a MGF can be
 derived, then the distribution is unique.
 
@@ -171,7 +171,7 @@ Example: &$E(X)=\left.\phi'(t)\right|_{t=0} \qquad E(X^2)=\left.\phi''(t)\right|
 	\vspace{3mm}
 	
 
-\subsection{Covariance (Abhängigkeit) $Cov(X,Y)$ \skript{36-38}}
+\subsection{Covariance (Abhängigkeit) $Cov(X,Y)$ \skript{40-42}}
 \begin{minipage}{12.5cm}
   $Cov(X,Y)=E(XY)-E(X)E(Y)=E([X-E(X)][Y-E(Y)])$ 
 
@@ -204,7 +204,7 @@ $Cov(\sum_i X_i, \sum_j Y_j) = \sum_i \sum_j Cov(X_i, Y_i)$\\
 \vspace{3mm}
 	
 	
-\subsection{Correlation Coefficient $\rho$ \skript{38}}
+\subsection{Correlation Coefficient $\rho$ \skript{41}}
 \begin{minipage}{8cm}
   $-1\leq\boxed{\rho=\displaystyle\frac{Cov(X,Y)}{\sqrt{Var(X)}\sqrt{Var(Y)}}}=cos(\varphi)\leq 1$\\
 \end{minipage}
@@ -218,7 +218,7 @@ $Cov(\sum_i X_i, \sum_j Y_j) = \sum_i \sum_j Cov(X_i, Y_i)$\\
 \hrule
 \vspace{3mm}
 
-\subsubsection{Jointly distributed random variables \skript{36}}
+\subsubsection{Jointly distributed random variables \skript{39}}
 $F(a,b)=P(X \leq a, Y \leq b) = P(X \leq a \cap Y \leq b) \quad -\infty < a,b < \infty $\\
 $p(x,y)=P(X=x, Y=y)$\\
 $P(\{X \in [a,b], Y \in [c,d]\})= \int\limits_a^b \int\limits_c^d f(x,y)dy dx $
@@ -249,8 +249,8 @@ $\boxed{C_X(t_1,t_2)=R_X(t_1,t_2)-E\left[X_{t_1} \right]E\left[X_{t_2}\right]}$
 \hrule
 \vspace{3mm}
 
-\subsection{Discrete Random Variables \skript{28-32}}
-\subsubsection{Bernoulli RV \skript{28,29}}
+\subsection{Discrete Random Variables \skript{30-34}}
+\subsubsection{Bernoulli RV \skript{30,31}}
 \begin{minipage}{10cm}
 	\begin{liste}
 		\item Throw a coin
@@ -272,7 +272,7 @@ $\boxed{C_X(t_1,t_2)=R_X(t_1,t_2)-E\left[X_{t_1} \right]E\left[X_{t_2}\right]}$
 	\hrule
 	\vspace{3mm}
 
-\subsubsection{Binomial RV $X\sim Binom(n,p)$ \skript{29,30}}
+\subsubsection{Binomial RV $X\sim Binom(n,p)$ \skript{31,32}}
 	\begin{liste}
 			\item Summation of $n$ Bernoulli RV / number of $k$ (exactly) success that occur in $n$ trials
 	\end{liste}
@@ -326,7 +326,7 @@ $P(\{X=i\})\approx\e^{-\lambda}\frac{\lambda^i}{i!}\qquad with\qquad \lambda=np 
 \hrule
 \vspace{3mm}
 
-\subsubsection{Poisson RV $X\sim Pois(\lambda)$ for $\lambda>0$ \skript{30,31}}
+\subsubsection{Poisson RV $X\sim Pois(\lambda)$ for $\lambda>0$ \skript{33}}
 
 \begin{minipage}{10cm}
 	\begin{liste}
@@ -351,7 +351,7 @@ $P(\{X=i\})\approx\e^{-\lambda}\frac{\lambda^i}{i!}\qquad with\qquad \lambda=np 
 \hrule
 \vspace{3mm}
 
-\subsubsection{Geometric RV $X\sim Geom(p)$ \skript{31,32}}
+\subsubsection{Geometric RV $X\sim Geom(p)$}
 
 \begin{minipage}{10cm}
 	\begin{liste}
@@ -374,8 +374,8 @@ $P(\{X=i\})\approx\e^{-\lambda}\frac{\lambda^i}{i!}\qquad with\qquad \lambda=np 
 \hrule
 \vspace{3mm}
 
-\subsection{Continuous Random Variables \skript{32}}
-\subsubsection{Uniform RV $X\sim U(\alpha,\beta)$ \skript{32}}
+\subsection{Continuous Random Variables \skript{34}}
+\subsubsection{Uniform RV $X\sim U(\alpha,\beta)$ \skript{34}}
 \begin{minipage}{10cm}
 $f_X(x) = \twopartdef { \frac{1}{\beta-\alpha} } {\alpha \leq x \leq\beta} {0} {\text{otherwise}}$
 \end{minipage}
@@ -391,7 +391,7 @@ $f_X(x) = \twopartdef { \frac{1}{\beta-\alpha} } {\alpha \leq x \leq\beta} {0} {
 \hrule
 \vspace{3mm}
 
-\subsubsection{Exponential RV $X\sim Exp(\lambda)$ \skript{33}}
+\subsubsection{Exponential RV $X\sim Exp(\lambda)$ \skript{35}}
 \begin{minipage}{10cm}
 
 \begin{equation}
@@ -415,7 +415,7 @@ F_X(x) = \twopartdef { 1-\e^{-\lambda x} } {x\geq 0} {0} {x<0}\nonumber
 \hrule
 \vspace{3mm}
 
-\subsubsection{Normal RV $X\sim N(\mu,\sigma^2)$ \skript{33-35}}
+\subsubsection{Normal RV $X\sim N(\mu,\sigma^2)$ \skript{36-39}}
 \begin{minipage}{10cm}
 $f_X(x) = \displaystyle\frac{1}{\sqrt{2\pi}\sigma}\cdot\e^{\displaystyle\frac{-(x-\mu)^2}{2\sigma^2}}\qquad -\infty <x<\infty$
 \end{minipage}
