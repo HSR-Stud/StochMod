@@ -195,14 +195,17 @@ Rate at which the process enters state $j$: $\sum\limits_{i\neq j}{\pi_i \nu_{ij
 \hfill
 \begin{minipage}{13.5cm}
 	\begin{align}
-		&\pi_0=\frac{1}{1+\sum\limits_{i=1}^{\infty}{\left(\lambda/\mu\right)^i}}\overset{\frac{\lambda}{\mu}<1}{=}\frac{1}{1+\frac{1}{1-\lambda/\mu-1}}=1-\frac\lambda\mu\nonumber\\[0.25cm]
+		&\pi_0=\frac{1}{1+\sum\limits_{i=1}^{\infty}{\left(\lambda/\mu\right)^i}}\overset{\frac{\lambda}{\mu}<1}{=}\frac{1}{1+\frac{1}{1-\lambda/\mu}-1}=1-\frac\lambda\mu\nonumber\\[0.25cm]
 		&\pi_n=\pi_0\left(\frac{\lambda}{\mu}\right)^n=\left(1-\frac{\lambda}{\mu}\right)\left(\frac\lambda\mu\right)^n\nonumber\\[0.5cm]
 		%&\textbf{Total time: }E(X_t)=\todo{???}\nonumber\\[0.5cm]
 		&\textbf{Service time: }E(T)=\frac{E(X_t)}{\lambda}\nonumber\\ %\todo{???}\nonumber\\[0.5cm]
 		&\textbf{Expected number of clients: }M=\sum\limits_{n=0}^{\infty}{n\pi_n}\nonumber\\
 		&\textbf{Use the normalisation: } P\big(n>2\big)=1-\pi_0-\pi_1\nonumber
 	\end{align}
-\end{minipage}
+\end{minipage} \\
+
+As $\pi_j=\lim\limits_{n\rightarrow \infty}{p_{ij}(t)}$ we can interpret $\pi_j$ as the fraction of time the system 
+spends in state $j$ as time goes to infinity. We can also say that $\pi_j$ is the probability to find the system in state $j$.
 
 \vfill
 
