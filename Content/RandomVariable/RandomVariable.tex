@@ -227,7 +227,7 @@ $P(\{X \in [a,b], Y \in [c,d]\})= \int\limits_a^b \int\limits_c^d f(x,y)dy dx $
 \hrule
 
 \subsection{Autocorrelation}
-	$\boxed{R_X(t_1,t_2)=E\left[(X_{t_1} X_{t_2}\right]}$\\
+	$\boxed{R_X(t_1,t_2)=E\left[(X_{t_1} X_{t_2})\right]}$\\
 	\vspace{0.2cm}
 	Estimation of the autocorrelation of a WSS process $X_k$:\\
 \begin{minipage}{9cm}
@@ -437,12 +437,12 @@ then: $Y\sim N(\alpha\mu+\beta,\alpha^2\sigma^2)$\\
 \subsubsection{Standard normal distribution $\Phi(x)$:}
 
 \textbf{Normalisation:} $Y=\frac{X-\mu}{\sigma}\sim N(0,1)$ \qquad for \qquad $X\sim N(\mu,\sigma^2)$ \qquad $\Rightarrow$ \qquad
-$\underbrace{\Phi(x)=\displaystyle\frac 1 {\sqrt{2\pi}}\int\limits_{-\infty}^x{\displaystyle\e^{\displaystyle\frac{-y^2}{2}}dy} }_{\text{cumulative distribution function}}$\\
+$\underbrace{\Phi(x)=P(X\leq x)=\displaystyle\frac 1 {\sqrt{2\pi}}\int\limits_{-\infty}^x{\displaystyle\e^{\displaystyle\frac{-y^2}{2}}dy} }_{\text{cumulative distribution function}}$\\
 
 \vspace{0.5cm}
 
 \textbf{Example:} $X\sim N\big(\mu,\sigma^2\big)\quad \Rightarrow \quad P\big(\alpha<X<\beta\big)\quad\overset{Norm.}{=}\quad P\big(\frac{\alpha-\mu}{\sigma}<\frac{X-\mu}{\sigma}<\frac{\beta-\mu}{\sigma}\big)=\underbrace{\Phi\left(\frac{\beta-\mu}{\sigma}\right)-\Phi\left(\frac{\alpha-\mu}{\sigma}\right)}\limits_{\text{Std.-Normal-Distr. table}}$\\
-\textbf{Bei negativen Werten:} $\boxed{\Phi(\alpha)=1-\Phi(-\alpha)}$
+\textbf{Bei negativen Werten:} $\boxed{\Phi(x)=1-\Phi(-x)}$
 
 
 \vspace{2mm}
