@@ -87,13 +87,14 @@ Time & $1 \leq t \leq T$&&
 \begin{minipage}[t]{0.49\textwidth}
 
 \subsection{Forward Algorithm (Evaluation)}
+The forward algorithm can be used to find the probability of an observed sequence $Y_t$.
 
 \begin{aufzaehlung}
 	\item Initialization for states $1\leq i \leq N$ at time $t=1$:\\
 	
 	\vspace{-0.3cm}
 	
-	$\boxed{\textcolor{blue}{\alpha_1}(i)=\pi_i b_j(y_1)}$
+	$\boxed{\textcolor{blue}{\alpha_1}(i)=\pi_i b_j(y_1)}$ 
 	
 	\item Recursion for states $1\leq j \leq N$ and time $1\leq t\leq T-1$:\\
 		
@@ -111,13 +112,15 @@ Time & $1 \leq t \leq T$&&
 \hfill
 \begin{minipage}[t]{0.49\textwidth}
 \subsection{Backward Algorithm (Evaluation)}
+The backward algorithm is important for the Baum-Welch algorithm. If the target is to find the probability of an observed sequence $Y_t$, then 
+the forward algorithm is sufficient. The backward algorithm starts from the last observation and goes backwards.
 
 \begin{aufzaehlung}
 	\item Initialization for $1 \leq i \leq N$ at time $t=T$:\\
 	
 	\vspace{-0.3cm}
 	
-	$\boxed{\textcolor{blue}{\beta_T}(i)=1}$
+	$\boxed{\textcolor{blue}{\beta_T}(i)=1}\to$ where $T$ is the last observation time
 	\item Recursion for states $1 \leq j \leq N$ and time $2\leq t\leq T$:\\
 	
 	\vspace{-0.3cm}
@@ -136,7 +139,7 @@ Time & $1 \leq t \leq T$&&
 
 \begin{minipage}[t]{0.49\textwidth}
 \subsection{Viterbi Algorithm (Decoding)}
-Be aware, this is not always the same $\alpha$ as in the forward algo.
+Be aware, this is not always the same $\alpha$ as in the forward algo (except for $\alpha_1(i)$).
 \begin{aufzaehlung}
 	\item Initialization for $1\leq i \leq N$:\\
 	
@@ -149,7 +152,7 @@ Be aware, this is not always the same $\alpha$ as in the forward algo.
 		
 		$\boxed{\textcolor{blue}{\alpha_{t+1}}(j)=b_{j}(y_{t+1}) \max\limits_{i \in \{1,\ldots,N\}}{\textcolor{blue}{\alpha_t}(i)a_{ij}}}$
 		
-		\item Termination:\\
+		\item Termination: (find the winner state)\\
 			
 		\vspace{-0.3cm}
 		
@@ -158,7 +161,8 @@ Be aware, this is not always the same $\alpha$ as in the forward algo.
 				
 		\vspace{-0.3cm}
 			
-		$\boxed{X_t=\arg~ \underset{j \in \{1,\ldots,N\}}{\max}~{\textcolor{blue}{\alpha_T}(j)}}$
+		$\boxed{X_t=\arg~ \underset{j \in \{1,\ldots,N\}}{\max}~{\textcolor{blue}{\alpha_T}(j)}}$\\
+		Starting from the biggest argument of $\alpha_T$ go backwards through the edges with the highest probability.
 \end{aufzaehlung}	 
 \end{minipage}
 \hfill
@@ -198,8 +202,10 @@ Be aware, this is not always the same $\alpha$ as in the forward algo.
 
 \subsection{Some properties}
 \begin{itemize}
-	\item The $\gamma$-Value: $\boxed{\gamma_t(j)=\alpha_t(j)\cdot\beta_t(j)}$
-	\item A property of the $\gamma$-Value: is: $\boxed{\sum\limits_{j=1}^{s}{\gamma_t(j)=P_{tot}}}$
+	\item The $\gamma$-Value: $\boxed{\gamma_t(j)=\textcolor{blue}{\alpha_t}(j)\cdot\textcolor{blue}{\beta_t}(j)}$
+	\item A property of the $\gamma$-Value: is: $\boxed{\sum\limits_{j=1}^{N}{\gamma_t(j)=P_{tot}}}$ \\  
+	$\to$ Example: $P_{tot}=\gamma_2(Hot)+\gamma_2(Cold)=\alpha_2(Hot)\cdot\beta_2(Hot)+\alpha_2(Cold)\cdot\beta_2(Cold)$
+	\item Probability that the state was $x$ at time $t$ given the sequence $Y_t$: $\boxed{P(X_t=x|Y_t)=\frac{\textcolor{blue}{\alpha_t}(x)}{\sum\limits_{j=1}^{N}{\textcolor{blue}{\alpha_t}(j)}}}$
 \end{itemize}
 
 
