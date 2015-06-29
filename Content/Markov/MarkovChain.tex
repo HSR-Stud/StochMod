@@ -76,7 +76,7 @@ The equations below are to solve to get the eigenvector $\pi$:
 \item $\pi_i$ is the time (in \%) spent in state $i$
 \end{itemize}
 
-The older TI-89 can't solve matrix equation. $\bm \pi$ can be found by calculating 
+TI-89 can solve matrix equations only with Simult.Eqn.Solver. $\bm \pi$ can be found by calculating 
 $\bm P^{100} \approx \bm P^\infty = \begin{bmatrix}\pi_1 & \ldots & \pi_n\\ \vdots &\ddots &\vdots\\\end{bmatrix}$
 
 \subsubsection{Some Definitions \skript{112}}
@@ -84,6 +84,7 @@ $\bm P^{100} \approx \bm P^\infty = \begin{bmatrix}\pi_1 & \ldots & \pi_n\\ \vdo
 \item We say a state $j\in S$ is \textbf{accessible} from a fixed state $i\in S$ if there exists $n\geq 0 $ such that $p_{ij}^n>0$. We write $i\rightarrow j$
 \item If $j$ is acessible from $i$ and $i$ from $j$, we say that $i$ and $j$ \textbf{communicate} and write $i \leftrightarrow j$
 \item $X$ is \textbf{irreducible} if all states communicate with each other. Note that this is equivalent with the existene of a path in the state transition diagram from $i$ to $j$ and back from $j$ to $i$ for all pairs of state $i$, $j$.\\
+Example: $0 \to 1 \to 2 \to 3 \to 0$
 
 An irreducible Markov chain has \textbf{only one stationary distribution}.
 (Wenn man einen Weg vom ersten Zustand, durch alle anderen Zustände und wieder zurück zum ersten Zustand mit einer Wahrscheinlichkeit ungleich Null findet.)
@@ -124,7 +125,7 @@ This picture shows a simple-graph $G=(V,E)$ with Vertex set $V=\{1,2,3,4\}$ and 
 %\vspace{0.25cm}
 
 \begin{itemize}
-	\item \textbf{The degree} $d_i$ of a vertex $i \in V$ is the number of edges incident to the vertex $i$. In the example above it is $d_1=d_4=3$ and $d_2=d_2=2$.
+	\item \textbf{The degree} $d_i$ of a vertex $i \in V$ is the number of edges incident to the vertex $i$. In the example above it is $d_1=d_4=3$ and $d_2=d_3=2$.
 	\item \textbf{The volume} of a subset of vertices $S \subset V$ is \qquad $\text{Vol}(S)=\sum\limits_{i\in S}^{} d_i$
 	\item \textbf{A path} from $i$ to $j$ of length $n$ in $G$ is an ordered sequence of distinct vertices $i=v_0,v_1,\ldots,v_n=j$ satisfying $\{v_k,v_{k+1}\} \in E$ for $k=0,1,\ldots,n-1$.
 	\item A graph is \textbf{connected} if for any two vertices $i$ and $j$, there is a path from $i$ to $j$.
@@ -163,8 +164,7 @@ This picture shows a simple-graph $G=(V,E)$ with Vertex set $V=\{1,2,3,4\}$ and 
 
 with $\lambda^{'}=min\{\lambda_2,2-\lambda_n\}$ where $\lambda_2$ is the second largest and $\lambda_n$ the smallest eigenvalue of $\bm{P}$.\\
 
-\textbf{Example for simple-graph $G$: } 
-\todo {Check example}
+\textbf{For the above example of simple-graph $G$: } 
 
 \renewcommand{\arraystretch}{2.0}
 \begin{tabular}{ll}
